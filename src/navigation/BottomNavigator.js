@@ -9,12 +9,12 @@ import NotificationScreen from '../screens/NotificationScreen';
 import LeaderboardScreen from '../screens/LeaderboardScreen';
 import SearchScreen from '../screens/SearchScreen';
 import MenuScreen from '../screens/MenuScreen';
-import { COLOR, hp } from '../enums/StyleGuide';
+import { COLOR, FONT, hp, width } from '../enums/StyleGuide';
 
 import Home from '../assets/svg/tabHomeIcon.svg'
 import Leader from '../assets/svg/tabLeaderIcon.svg'
-import Bell from '../assets/svg/tabLeaderIcon.svg'
-import Find from '../assets/svg/tabLeaderIcon.svg'
+import Bell from '../assets/svg/tabNotificationIcon.svg'
+import Find from '../assets/svg/tabSearchicon.svg'
 import Menu from '../assets/svg/tabMenuIcon.svg'
 
 
@@ -38,7 +38,7 @@ const BottomNavigator = () => {
                             icon = <Leader name="leader-board" />;
                             break;
                         case SCREEN.NOTIFICATION:
-                            icon = <Bell name="Sotification" />;
+                            icon = <Bell name="Notification" />;
                             break;
                         case SCREEN.SEARCH:
                             icon = <Find name="Search" />;
@@ -59,7 +59,10 @@ const BottomNavigator = () => {
                             style={[styles.tabItem, isFocused && styles.tabItemFocused]}
                         >
                             {icon}
+                            <View style={{width:width}}>
                             <Text style={styles.tabLabel}>{label}</Text>
+                            </View>
+                            
                         </TouchableOpacity>
                     );
                 })}
@@ -97,13 +100,17 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        overflow: 'hidden', // Ensure text doesn't overflow the tab item
     },
     tabItemFocused: {
         backgroundColor: 'rgba(255, 255, 255, 0.2)', // Change the background color when tab is focused
     },
     tabLabel: {
-        fontSize: 12,
+        fontSize: 14, // Decrease the font size to fit longer text
         marginTop: 4,
         color: 'white', // Change the color of the tab label
+        textAlign: 'center', // Center align the text
+        maxWidth: '100%',
+        fontFamily:FONT.Murecho_Regular // Limit the width of the text to prevent overflow
     },
 });

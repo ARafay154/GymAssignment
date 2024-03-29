@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         paddingBottom: '5%',
         borderBottomWidth: 0.5,
-        borderColor: '#545454'
+        borderColor: '#545454',
+        lineHeight:20
     },
 });

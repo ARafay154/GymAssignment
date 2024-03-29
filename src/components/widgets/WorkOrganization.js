@@ -32,10 +32,13 @@ const WorkOrganization = () => {
       </View>
 
       <View style={styles.content}>
+        
         <View style={styles.leftContainer}>
+
           <View style={styles.block}>
             <Picture source={require('../../assets/images/organization_image.png')} style={styles.image} />
           </View>
+
           <View>
             <Label text={"Work / Organizations"} textStyle={styles.subheading} />
             <Label text={"June 16, 2022 - Present"} textStyle={styles.text} />
@@ -45,6 +48,7 @@ const WorkOrganization = () => {
             </View>
           </View>
         </View>
+
         <View style={styles.rightContainer}>
           <TouchableOpacity >
             <Edit width={18} height={18} />
@@ -53,25 +57,35 @@ const WorkOrganization = () => {
       </View>
 
       <View style={styles.content}>
+
         <View style={styles.leftContainer}>
+
           <View style={styles.block}>
             <Picture source={require('../../assets/images/organization_image.png')} style={styles.image} />
           </View>
+
           <View>
             <Label text={"Work / Organizations"} textStyle={styles.subheading} />
+
             <Label text={"June 16, 2022 - Present"} textStyle={styles.text} />
+
             <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 3 }}>
               <Direction width={12} height={12} style={{ marginRight: 3, }} />
               <Label text={"New York, USA"} textStyle={styles.text} />
             </View>
+
           </View>
+
         </View>
+
         <View style={styles.rightContainer}>
           <TouchableOpacity >
             <Edit width={18} height={18} />
           </TouchableOpacity>
         </View>
+
       </View>
+
     </View>
   );
 };

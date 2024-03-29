@@ -13,7 +13,7 @@ import En from '../../locales/En'
 const Details = () => {
 
     return (
-        <View style={{ marginTop: '3%', padding: "5%", backgroundColor: COLOR.Widget_background, borderRadius: 12 }}>
+        <View style={styles.container}>
             <View style={styles.head}>
                 <Label text={"Details"} textStyle={styles.Name} />
                 <View style={{ display: 'flex', flexDirection: 'row', }}>
@@ -52,6 +52,12 @@ const Details = () => {
 export default Details
 
 const styles = StyleSheet.create({
+    container:{
+        marginTop: '3%', 
+        padding: "5%", 
+        backgroundColor: COLOR.Widget_background, 
+        borderRadius: 12
+    },
     head: {
         display: 'flex',
         flexDirection: 'row',

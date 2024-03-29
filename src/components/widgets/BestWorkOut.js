@@ -27,29 +27,29 @@ const BestWorkOut = () => {
           labelText: "My Daily Running", 
           topScore: 96 
         }
-      ];
+    ];
 
     return (
         <View style={styles.container}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 15 }}>
+            <View style={styles.titleRow}>
                 <View>
-                    <Label text={"My Best Workouts"} textStyle={{ color: COLOR.Button_color, fontSize: 20, fontFamily: FONT.Murecho_Bold }} />
+                    <Label text={"My Best Workouts"} textStyle={styles.titleText} />
                 </View>
                 <View>
-                    <Label text={"See All"} textStyle={{ color: COLOR.white, fontSize: 15, fontFamily: FONT.Murecho_Regular }} />
+                    <Label text={"See All"} textStyle={styles.seeAllText} />
                 </View>
             </View>
 
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-evenly', marginBottom:'5%' }}>
+            <View style={styles.itemsRow}>
                 {WorkoutItems.map((item, index) => (
-                    <View key={index} style={{ width: wp(20) }}>
+                    <View key={index} style={styles.itemContainer}>
                         <Picture source={item.imageSource} style={styles.image} />
-                        <Label text={item.labelText} textStyle={{ fontSize: 9, fontFamily: FONT.Murecho_Regular, color: COLOR.white, marginTop: 2, lineHeight: 15 }} />
-                        <View style={{ flexDirection: 'row', marginTop: 2 }}>
-                            <Label text={"Top Scores: "} textStyle={{ fontSize: 9, fontFamily: FONT.Murecho_Regular, color: COLOR.white, lineHeight: 15 }} />
-                            <Label text={item.topScore.toString()} textStyle={{ fontSize: 10, fontFamily: FONT.Murecho_Bold, color: COLOR.Button_color, lineHeight: 15 }} />
+                        <Label text={item.labelText} textStyle={styles.itemLabelText} />
+                        <View style={styles.scoreRow}>
+                            <Label text={"Top Scores: "} textStyle={styles.scoreLabelText} />
+                            <Label text={item.topScore.toString()} textStyle={styles.scoreValueText} />
                         </View>
-                        <CustomButton title={"Details"} labelStyle={styles.Btn_Title} buttonStyle={styles.Btn_View} />
+                        <CustomButton title={"Details"} labelStyle={styles.buttonTitle} buttonStyle={styles.buttonView} />
                     </View>
                 ))}
             </View>
@@ -62,23 +62,68 @@ export default BestWorkOut
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        borderBottomWidth:1,
-        borderColor:'#4F4F5B'
+        borderBottomWidth: 1,
+        borderColor: '#4F4F5B'
+    },
+    titleRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 15
+    },
+    titleText: {
+        color: COLOR.Button_color,
+        fontSize: 20,
+        fontFamily: FONT.Murecho_Bold
+    },
+    seeAllText: {
+        color: COLOR.white,
+        fontSize: 15,
+        fontFamily: FONT.Murecho_Regular
+    },
+    itemsRow: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-evenly',
+        marginBottom: '5%'
+    },
+    itemContainer: {
+        width: wp(20)
     },
     image: {
         width: '100%',
         height: hp(10),
     },
-    labeltext: {
-        color: 'white'
+    itemLabelText: {
+        fontSize: 9,
+        fontFamily: FONT.Murecho_Regular,
+        color: COLOR.white,
+        marginTop: 2,
+        lineHeight: 15
     },
-    Btn_Title: {
+    scoreRow: {
+        flexDirection: 'row',
+        marginTop: 2
+    },
+    scoreLabelText: {
+        fontSize: 9,
+        fontFamily: FONT.Murecho_Regular,
+        color: COLOR.white,
+        lineHeight: 15
+    },
+    scoreValueText: {
+        fontSize: 10,
+        fontFamily: FONT.Murecho_Bold,
+        color: COLOR.Button_color,
+        lineHeight: 15
+    },
+    buttonTitle: {
         color: COLOR.white,
         textAlign: 'center',
         fontFamily: FONT.Murecho_Regular,
         fontSize: 10,
     },
-    Btn_View: {
+    buttonView: {
         borderWidth: 1,
         borderColor: COLOR.text_color,
         width: wp(12),
@@ -86,8 +131,5 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         backgroundColor: "#1B1A1A",
         marginTop: 6
-
     },
-
-
 })

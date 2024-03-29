@@ -5,13 +5,14 @@ import { COLOR, FONT, hp, width, wp } from '../../enums/StyleGuide'
 import En from '../../locales/En'
 import Search from '../../assets/svg/search.svg'
 import Notification from '../../assets/svg/notification.svg'
+import MapView, { Marker } from 'react-native-maps';
 
 const TestNearByMe = () => {
     return (
         <View style={styles.container}>
-            <Label text={"My Best Workouts"} textStyle={{ color: COLOR.Button_color, fontSize: 20, fontFamily: FONT.Murecho_Bold }} />
+            <Label text={"My Best Workouts"} textStyle={styles.labelText} />
 
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: '3%' }}>
+            <View style={styles.searchRow}>
                 <View style={styles.searchContainer}>
                     <TextInput
                         style={styles.input}
@@ -25,10 +26,30 @@ const TestNearByMe = () => {
             </View>
 
             {/* Map */}
+            <View style={styles.mapContainer}>
+                <MapView
+                    style={styles.map}
+                    initialRegion={{
+                        latitude: 37.78825,
+                        longitude: -122.4324,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                    }}
+                >
+                    <Marker
+                        coordinate={{
+                            latitude: 37.78825,
+                            longitude: -122.4324,
+                        }}
+                        image={{ uri: 'https://www.example.com/your_image.png' }}
+                        title="Abdul Rafay"
+                    />
+                </MapView>
+            </View>
 
-            <View style={styles.NotificationView}>
-                <Notification width={18} height={18} style={{marginRight:5}} />
-                <Label text={En.notification_text} style={{ width: '100%' }} textStyle={{ color: "#0057DA", fontSize: 11 }} />
+            <View style={styles.notificationView}>
+                <Notification width={18} height={18} style={styles.notificationIcon} />
+                <Label text={En.notification_text} style={styles.notificationText} textStyle={styles.notificationTextStyle} />
             </View>
 
         </View>
@@ -41,7 +62,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginVertical: '3%',
-
+    },
+    labelText: {
+        color: COLOR.Button_color,
+        fontSize: 20,
+        fontFamily: FONT.Murecho_Bold
+    },
+    searchRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: '3%',
     },
     searchContainer: {
         borderWidth: 1,
@@ -66,7 +97,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: COLOR.white,
     },
-    NotificationView: {
+    notificationView: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -77,6 +108,29 @@ const styles = StyleSheet.create({
         height: hp(6),
         paddingHorizontal: 10,
         backgroundColor: "#B5D2FF",
-        paddingLeft:'3%'
-    }
+        paddingLeft: '3%'
+    },
+    notificationIcon: {
+        marginRight: 5
+    },
+    notificationText: {
+        width: '100%'
+    },
+    notificationTextStyle: {
+        color: "#0057DA",
+        fontSize: 11
+    },
+    mapContainer: {
+        flex: 1,
+        borderRadius: 10,
+        overflow: 'hidden',
+        width: '100%',
+        aspectRatio: 1,
+        marginVertical: '3%'
+    },
+    map: {
+        width: '100%',
+        height: "100%",
+        position: 'absolute',
+    },
 })
