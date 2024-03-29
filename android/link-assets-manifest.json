@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Murecho-Bold.ttf",
+      "sha1": "50a4640b2146e6760c4b6fffaddc2005c406f313"
+    },
+    {
+      "path": "src/assets/fonts/Murecho-Medium.ttf",
+      "sha1": "e7575f29071f893c659d1f090bcab42c9f349e0f"
+    },
+    {
+      "path": "src/assets/fonts/Murecho-Regular.ttf",
+      "sha1": "e5e29ab25b6979523520017d7b4cf32e17fdbb5c"
+    }
+  ]
+}
